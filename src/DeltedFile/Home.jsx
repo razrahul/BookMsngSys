@@ -9,7 +9,7 @@ function Home() {
   // for SearchBook
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
-  // console.log(posts)
+console.log(posts)
   // yaha tak block
 
   useEffect(() => {
@@ -91,9 +91,8 @@ function Home() {
                   onChange = {(e) => {
                    
                       handleSearch();
-                    }
-                  }
-                  // onChange={handleSearch}
+                    
+                  }}
                 />
                 {/* <button
                   className=" mx-2"

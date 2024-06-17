@@ -101,6 +101,9 @@ export class Service{
     }
 
     async searchBooks (searchTerm) {
+
+        console.log(searchTerm);
+        
         try {
             // const queries = [];
             // if (searchTerm == title) {
@@ -116,12 +119,12 @@ export class Service{
                
                     
                 
-                [
-                    // queries,
-                        Query.equal('auther', searchTerm),
-                        // Query.equal('title', se archTerm),
+                // [
+                //     // queries,
+                //         // Query.equal('auther', searchTerm),
+                //          Query.equal('title', searchTerm),
                         
-                ]
+                // ]
                 
 
             )
