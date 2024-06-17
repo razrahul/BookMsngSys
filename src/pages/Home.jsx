@@ -85,7 +85,7 @@ function Home() {
                 <input
                   type="text"
                   className=" h-16 w-[22rema] text-xl text-black font-bold flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-purple-500 bg-indigo-100 opacity-60 "
-                  placeholder="Search by author now"
+                  placeholder="Search Somethings"
                   value={searchTerm}
                   onInput={(e) => setSearchTerm(e.target.value)}
                   onChange = {(e) => {
