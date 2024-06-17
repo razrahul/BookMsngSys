@@ -24,6 +24,8 @@ export default function Post() {
     }, [slug, navigate]);
 
     const deletePost = () => {
+        // console.log(post.$id)
+        // console.log("click hit")
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
@@ -45,11 +47,11 @@ export default function Post() {
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
+                                <Button bgcolor="bg-green-500" className="mr-3">
                                     Edit
                                 </Button>
                             </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
+                            <Button bgcolor="bg-red-500" onClick={deletePost} >
                                 Delete
                             </Button>
                         </div>
