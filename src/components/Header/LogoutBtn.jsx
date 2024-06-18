@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import authService from '../../appwrite/auth'
 import { logout } from '../../store/authSlice'
+import { toast } from 'react-toastify'
 
 function LogoutBtn() {
   
@@ -12,6 +13,17 @@ function LogoutBtn() {
         authService.logout()
         .then( () => {
             dispatch(logout())
+            toast.success('🦄 Logout Successful !', {
+              position: "top-right",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              // transition: Bounce,
+              });    // Set success message
         })
     }
   return (

@@ -5,6 +5,7 @@ import {login} from '../store/authSlice'
 import {Button, Input, Logo} from './index.js'
 import {useDispatch} from 'react-redux'
 import {useForm} from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 function Signup() {
     const navigate = useNavigate()
@@ -19,8 +20,21 @@ function Signup() {
             const userData = await authService.createAccount(data)
             if (userData) {
                 const userData = await authService.getCurrentUser()
-                if(userData) dispatch(login(userData));
-                navigate("/")
+                if(userData) {
+                    toast.success('🦄 Signup Successful !', {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                        // transition: Bounce,
+                    });    // Set success message
+                    dispatch(login(userData));
+                     navigate("/")
+                }
             }
         } catch (error) {
             setError(error.message)
