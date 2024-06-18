@@ -1,15 +1,16 @@
-/* #root {
+#root {
   max-width:full-screen;
   margin: 0 auto;
-  padding: 2rem;
+  /* min-zoom:75%; */
+  
   text-align: center;
 }
 
 .logo {
   height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;git push
+  /* padding: 1.5em;  */
+  /* will-change: filter; */
+  /* transition: filter 300ms;git push */
 
 }
 .logo:hover {
@@ -40,4 +41,4 @@
 
 .read-the-docs {
   color: #888;
-} */
+}

@@ -6,10 +6,10 @@ function PostCard({$id, title, featuredImage}) {
     
   return (
     <Link to={`/post/${$id}`}>
-        <div className='w-full bg-gray-100 rounded-xl p-4'>
-            <div className='w-full justify-center mb-4'>
+        <div className='w-full bg-gray-100 rounded-xl p-4  '>
+            <div className='w-full  mb-4 h-60'>
                 <img src={appwriteService.getFilePreview(featuredImage)} alt={title}
-                className='rounded-xl' />
+                className='rounded-xl   h-60 w-full'  />
 
             </div>
             <h2
