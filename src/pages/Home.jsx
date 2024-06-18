@@ -50,7 +50,7 @@ function Home() {
   
   return (
     <>
-      <div className=" w-full ">
+      <div className=" w-full "> {/*// img and search function */}
         {/* <HeroSec /> */}
         <div
           className="relative h-[24rem] bg-cover bg-center bg-no-repeat"
@@ -94,7 +94,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div>
+       <div>   {/*//post nahi to please login */}
         {posts?.length === 0 ? (
           <div className=" w-full py-8 mt-4 text-center">
             <Container>
@@ -109,7 +109,7 @@ function Home() {
           </div>
         ) : null}
       </div>
-      <div className="w-full py-4">
+      <div className="w-full py-4">     {/*//post content */}
         {results?.length > 0 ? (
           <Container>
             <div className="flex justify-center flex-wrap">
