@@ -13,33 +13,28 @@ function Home() {
   // yaha tak block
 
   useEffect(() => {
-      appwriteService.getPosts().then((posts) => {
-        if (posts) {
-          setPosts(posts.documents);
-        }
-      });
-
-    
+    appwriteService.getPosts().then((posts) => {
+      if (posts) {
+        setPosts(posts.documents);
+      }
+    });
   }, []);
 
   useEffect(() => {
     if (searchTerm === "") {
-      
-        if (posts) {
-          setResults(posts);
-        }
-      
+      if (posts) {
+        setResults(posts);
+      }
     }
-    
   }, [searchTerm]);
 
   // Search book
   const handleSearch = async () => {
-
     try {
-     const filteredItems = posts.filter((b) =>
-      b.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      b.auther.toLowerCase().includes(searchTerm.toLowerCase())
+      const filteredItems = posts.filter(
+        (b) =>
+          b.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          b.auther.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
       // const books = await appwriteService.searchBooks(searchTerm);
@@ -52,21 +47,7 @@ function Home() {
 
   //yaha tak block
 
-  if (posts?.length === 0) {
-    return (
-      <div className=" w-full py-8 mt-4 text-center">
-        <Container>
-          <div className="flex flex-wrap">
-            <div className="p-2 w-full">
-              <h1 className="text-2xl font-bold hover:text-gray-500">
-                Login to read posts
-              </h1>
-            </div>
-          </div>
-        </Container>
-      </div>
-    );
-  }
+  
   return (
     <>
       <div className=" w-full ">
@@ -88,11 +69,9 @@ function Home() {
                   placeholder="Search Somethings"
                   value={searchTerm}
                   onInput={(e) => setSearchTerm(e.target.value)}
-                  onChange = {(e) => {
-                   
-                      handleSearch();
-                    }
-                  }
+                  onChange={(e) => {
+                    handleSearch();
+                  }}
                   // onChange={handleSearch}
                 />
                 {/* <button
@@ -115,8 +94,23 @@ function Home() {
           </div>
         </div>
       </div>
+      <div>
+        {posts?.length === 0 ? (
+          <div className=" w-full py-8 mt-4 text-center">
+            <Container>
+              <div className="flex flex-wrap">
+                <div className="p-2 w-full">
+                  <h1 className="text-2xl font-bold hover:text-gray-500">
+                    Login to read Posts
+                  </h1>
+                </div>
+              </div>
+            </Container>
+          </div>
+        ) : null}
+      </div>
       <div className="w-full py-4">
-        {results?.length > 0 ? 
+        {results?.length > 0 ? (
           <Container>
             <div className="flex justify-center flex-wrap">
               {results.map((book) => (
@@ -126,7 +120,8 @@ function Home() {
                 </div>
               ))}
             </div>
-          </Container> :
+          </Container>
+        ) : (
           <Container>
             <div className="flex justify-center flex-wrap">
               {posts.map((post) => (
@@ -137,7 +132,7 @@ function Home() {
               ))}
             </div>
           </Container>
-        }
+        )}
       </div>
     </>
   );
