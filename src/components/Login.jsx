@@ -12,14 +12,17 @@ function Login() {
 
     const { register, handleSubmit } = useForm();
     const [error, setError] = useState("")
+    const [message, setMessage ] = useState("")  // Add state for success message
 
     const login = async (data) => {
         setError("")
+        setMessage("");  // Reset the message state
         try {
             const session = await authService.login(data)
             if(session){
                 const userData = await authService.getCurrentUser()
                 if(userData){
+                    setMessage("Login successful!");  // Set success message
                     dispatch(authLogin(userData))
                     navigate("/")
                 }
@@ -81,7 +84,6 @@ function Login() {
                 >Sign In</Button>
             </div>
         </form>
-        
         </div>
     </div>
   )
