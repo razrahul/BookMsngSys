@@ -39,7 +39,7 @@ function Header() {
 
   return (
    <>
-    <header className="py-3 shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+    <header className=" py-[0.3rem] shadow-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white">
       <Container>
         <nav className="flex items-center justify-between">
           <div className="mr-4">

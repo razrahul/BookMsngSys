@@ -72,7 +72,7 @@ function Home() {
       <div className=" w-full ">
         {/* <HeroSec /> */}
         <div
-          className="relative h-[30rem] bg-cover bg-center bg-no-repeat"
+          className="relative h-[24rem] bg-cover bg-center bg-no-repeat"
           //  style={{ backgroundImage: `url('https://images.pexels.com/photos/25542627/pexels-photo-25542627/free-photo-of-woman-in-white-dress-sitting-in-window-and-reading-book.jpeg?auto=compress&cs=tinysrgb&w=600')` }}>
           style={{ backgroundImage: `url(${bc_img1})` }}
         >
@@ -115,7 +115,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full py-8">
+      <div className="w-full py-4">
         {results?.length > 0 ? 
           <Container>
             <div className="flex justify-center flex-wrap">
@@ -128,7 +128,7 @@ function Home() {
             </div>
           </Container> :
           <Container>
-            <div className="flex flex-wrap">
+            <div className="flex justify-center flex-wrap">
               {posts.map((post) => (
                 <div key={post?.$id} className="p-2 w-1/4">
                   {/* console.log({post.$id}) */}
