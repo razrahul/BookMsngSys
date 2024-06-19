@@ -24,8 +24,6 @@ export default function Post() {
     }, [slug, navigate]);
 
     const deletePost = () => {
-        // console.log(post.$id)
-        // console.log("click hit")
         appwriteService.deletePost(post.$id).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
@@ -35,42 +33,43 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8 max-w-fit ">
-            <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    <img
-                        src={appwriteService.getFilePreview(post.featuredImage)}
-                        alt={post.title}
-                        className="rounded-xl"
-                    />
+        <div className="flex justify-center items-center min-h-screen">
+            <div className="w-full max-w-4xl p-4 h-full">
+                <Container>
+                    <div className="w-full flex justify-center mb-2 relative border rounded-xl p-1">
+                        <img
+                            src={appwriteService.getFilePreview(post.featuredImage)}
+                            alt={post.title}
+                            className="rounded-xl h-[30rem] w-full object-cover"
+                        />
 
-                    {isAuthor && (
-                        <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgcolor="bg-green-500" className="mr-3">
-                                    Edit
+                        {isAuthor && (
+                            <div className="absolute right-6 top-6">
+                                <Link to={`/edit-post/${post.$id}`}>
+                                    <Button bgcolor="bg-green-500" className="mr-3">
+                                        Edit
+                                    </Button>
+                                </Link>
+                                <Button bgcolor="bg-red-500" onClick={deletePost}>
+                                    Delete
                                 </Button>
-                            </Link>
-                            <Button bgcolor="bg-red-500" onClick={deletePost} >
-                                Delete
-                            </Button>
-                        </div>
-                    )}
-                </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">Book : {post.title}</h1>
-                </div>
-                <div className="w-full mb-6">
-                    <h2 className="text-xl font-bold">Author : {post.auther}</h2>
-                </div>
-                <div className="w-full mb-6">
-                    <h2 className="text-xl font-bold">Publication Date : {post.publication}</h2>
-                </div>
-                <div className="browser-css">
-                    {/* {parse(post.content)} */}
-                    {parse(`Description : ${post.content}`)}
+                            </div>
+                        )}
                     </div>
-            </Container>
+                    <div className="w-full mb-6">
+                        <h1 className="text-2xl font-bold">Book: {post.title}</h1>
+                    </div>
+                    <div className="w-full mb-6">
+                        <h2 className="text-xl font-bold">Author: {post.auther}</h2>
+                    </div>
+                    <div className="w-full mb-6">
+                        <h2 className="text-xl font-bold">Publication Date: {post.publication}</h2>
+                    </div>
+                    <div className="browser-css">
+                        {parse(`Description: ${post.content}`)}
+                    </div>
+                </Container>
+            </div>
         </div>
     ) : null;
 }
