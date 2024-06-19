@@ -24,7 +24,7 @@ function Login() {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) {
-            toast.success('🦄 login Successful !', {
+            toast.success('login Successful !', {
                 position: "top-right",
                 autoClose: 3000,
                 hideProgressBar: false,

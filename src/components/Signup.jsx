@@ -21,7 +21,7 @@ function Signup() {
             if (userData) {
                 const userData = await authService.getCurrentUser()
                 if(userData) {
-                    toast.success('🦄 Signup Successful !', {
+                    toast.success('Signup Successful !', {
                         position: "top-right",
                         autoClose: 3000,
                         hideProgressBar: false,

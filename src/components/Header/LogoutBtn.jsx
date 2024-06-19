@@ -13,7 +13,7 @@ function LogoutBtn() {
         authService.logout()
         .then( () => {
             dispatch(logout())
-            toast.success('🦄 Logout Successful !', {
+            toast.success('Logout Successful !', {
               position: "top-right",
               autoClose: 3000,
               hideProgressBar: false,
