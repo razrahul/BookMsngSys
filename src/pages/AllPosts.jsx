@@ -10,6 +10,22 @@ function AllPosts() {
             setPosts(posts.documents)
         }
     })
+
+    
+    if (posts?.length === 0) {
+        return (
+          <div className="flex justify-center items-center w-full py-8 mt-4 text-center h-[36rem]">
+            <Container>
+              <div className="p-2 w-full">
+                <h1 className="text-5xl font-bold text-green-600 hover:text-gray-500">
+                  Loading...
+                </h1>
+              </div>
+            </Container>
+          </div>
+        );
+    }
+      
   return (
     <div className='w-full py-8'>
         <Container>
