@@ -4,6 +4,8 @@ import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Spinner,Digital } from "react-activity";
+import "react-activity/dist/Digital.css";
 
 export default function PostForm({ post }) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
@@ -136,7 +138,9 @@ export default function PostForm({ post }) {
                 />
                 {loading ? <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
                     {post ? "Update" : "Submit"}
-                </Button> : null }
+                </Button> : ( <Button  bgColor={post ? "bg-green-500" : undefined} className="w-full flex justify-center items-center ">
+                    <Digital color="red" size={20} speed={0.9} />
+                </Button>) }
                 
             </div>
         </form>
