@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { useForm } from "react-hook-form";
+import React, { useCallback, useState } from "react";
+import { set, useForm } from "react-hook-form";
 import { Button, Input, RTE, Select } from "..";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
@@ -19,9 +19,11 @@ export default function PostForm({ post }) {
 
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
+    const[loading, setLoading] = useState(true)
 
     const submit = async (data) => {
         if (post) {
+            setLoading(false);
             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
             if (file) {
@@ -37,6 +39,7 @@ export default function PostForm({ post }) {
                 navigate(`/post/${dbPost.$id}`);
             }
         } else {
+            setLoading(false)
             const file = await appwriteService.uploadFile(data.image[0]);
             if (file) {
                 const fileId = file.$id;
@@ -48,6 +51,7 @@ export default function PostForm({ post }) {
                 }
             }
         }
+        setLoading(true);
     };
 
     const slugTransform = useCallback((value) => {
@@ -130,9 +134,10 @@ export default function PostForm({ post }) {
                     className="mb-4"
                     {...register("status", { required: true })}
                 />
-                <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
+                {loading ? <Button type="submit" bgColor={post ? "bg-green-500" : undefined} className="w-full">
                     {post ? "Update" : "Submit"}
-                </Button>
+                </Button> : null }
+                
             </div>
         </form>
     );
