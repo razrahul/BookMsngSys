@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import './App.css'
 import authService from "./appwrite/auth"
 import {login, logout} from "./store/authSlice"
-import { Footer, Header } from './components'
+import { Footer, Header, Container } from './components'
 import { Outlet } from 'react-router-dom'
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
     .finally(() => setLoading(false))
   }, [])
   
-  return !loading ? (
+  return !loading ? ( 
     <div className=' w-screen max-w-full min-h-screen flex flex-wrap content-between bg-gray-400'>
       <div className='w-full block'>
         <Header />
@@ -32,7 +32,13 @@ function App() {
         <Footer />
       </div>
     </div>
-  ) : null
+    ) : 
+      (<div className="flex justify-center items-center min-h-screen font-bold text-5xl text-green-600">
+        <Container className="flex justify-center items-center">
+            <h2>Loading...</h2>
+        </Container>
+    </div>
+    )
 }
 
 export default App
