@@ -5,6 +5,8 @@ import authService from "./appwrite/auth"
 import {login, logout} from "./store/authSlice"
 import { Footer, Header, Container } from './components'
 import { Outlet } from 'react-router-dom'
+import { Dots,Bounce } from "react-activity";
+import "react-activity/dist/Bounce.css";
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -35,7 +37,9 @@ function App() {
     ) : 
       (<div className="flex justify-center items-center min-h-screen font-bold text-5xl text-green-600">
         <Container className="flex justify-center items-center">
-            <h2>Loading...</h2>
+            <h2>Loading
+            <Bounce color="green-500" size={25} speed={0.9} />
+            </h2>
         </Container>
     </div>
     )
