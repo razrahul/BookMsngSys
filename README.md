@@ -1,11 +1,17 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Book Management System
 
-Currently, two official plugins are available:
+## Summary
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh.
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh.
+This Book Management System is a web application developed using JavaScript and React.js for the front-end, with Appwrite providing the back-end services. The system is designed to efficiently manage a collection of books, enabling users to catalog, search, borrow, and return books seamlessly.
+
+### Key Features:
+- **User Authentication**: Secure user login and registration powered by Appwrite's built-in authentication services.
+- **Book Cataloging**: Allows users to add, update, and delete book entries, with details like title, author, genre, and availability.
+- **Real-time Inventory Tracking**: Keeps track of book availability in real-time.
+- **Search Functionality**: Enables users to quickly find books by title, author, or genre.
+
 
 ## Project Live URL
 
